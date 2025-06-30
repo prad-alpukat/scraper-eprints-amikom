@@ -151,20 +151,10 @@ Index,Judul,URL,Tahun,Kategori
 - **Frekuensi**: Setiap 50 artikel (dapat dikonfigurasi)
 - **Tujuan**: Recovery jika proses terhenti
 
-## 🕐 Estimasi Waktu & Resource
+# Mode
 
-### Mode Testing (10 artikel)
-
-- ⏱️ **Waktu**: ~1 menit
-- 💾 **Storage**: ~50 KB
-- 🌐 **Request**: ~20 HTTP calls
-
-### Mode Production (379 artikel)
-
-- ⏱️ **Waktu**: ~16 jam (dengan delay 2 detik)
-- 💾 **Storage**: ~5-10 MB
-- 🌐 **Request**: ~1,500 HTTP calls
-- 📁 **Backup**: 7-8 file backup
+- Testing (10 artikel)
+- Production (Semua artikel)
 
 ## 🔧 Pengaturan Lanjutan
 
