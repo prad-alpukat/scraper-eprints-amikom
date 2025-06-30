@@ -104,9 +104,11 @@ bun run scrape.ts
 
 ## 📊 Output yang Dihasilkan
 
+Semua file output CSV akan disimpan dalam folder `output-csv/` yang dibuat otomatis.
+
 ### 1. Daftar Artikel Utama
 
-**File**: `artikel_utama_YYYY-MM-DDTHH-mm-ss.csv`
+**File**: `output-csv/artikel_utama_YYYY-MM-DDTHH-mm-ss.csv`
 
 **Kolom**:
 
@@ -125,7 +127,7 @@ Index,Judul,URL,Tahun,Kategori
 
 ### 2. Detail Artikel
 
-**File**: `detail_artikel_YYYY-MM-DDTHH-mm-ss.csv`
+**File**: `output-csv/detail_artikel_YYYY-MM-DDTHH-mm-ss.csv`
 
 **Kolom**:
 
@@ -144,7 +146,7 @@ Index,Judul,URL,Tahun,Kategori
 
 ### 3. File Backup (Mode Production)
 
-**File**: `backup_artikel_X_YYYY-MM-DDTHH-mm-ss.csv`
+**File**: `output-csv/backup_artikel_X_YYYY-MM-DDTHH-mm-ss.csv`
 
 - **Frekuensi**: Setiap 50 artikel (dapat dikonfigurasi)
 - **Tujuan**: Recovery jika proses terhenti
@@ -197,7 +199,7 @@ Scraper akan menampilkan informasi real-time:
 
 ```
 📊 Progress: 13.2% (50/379) | ✅ 48 berhasil | ❌ 2 gagal
-💾 Menyimpan backup ke: backup_artikel_50_2025-07-01T10-30-15.csv
+💾 Menyimpan backup ke: output-csv/backup_artikel_50_2025-07-01T10-30-15.csv
 ⏱️  Estimasi sisa waktu: ~14 jam
 ```
 
@@ -258,7 +260,7 @@ scrape/
 ├── tsconfig.json            # TypeScript config
 ├── README.md                # Dokumentasi ini
 ├── bun.lock                 # Lock file dependencies
-└── output/                  # Folder output CSV (auto-generated)
+└── output-csv/              # Folder output CSV (auto-generated)
     ├── artikel_utama_*.csv
     ├── detail_artikel_*.csv
     └── backup_artikel_*.csv

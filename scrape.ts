@@ -1,5 +1,7 @@
 import { JSDOM } from "jsdom"; // Mengimpor JSDOM
 import * as xpath from "xpath"; // Mengimpor xpath
+import { mkdirSync, existsSync } from "fs"; // Import filesystem utilities
+import { join } from "path"; // Import path utilities
 
 // === KONFIGURASI SCRAPING ===
 const CONFIG = {
@@ -23,7 +25,24 @@ const CONFIG = {
 
   // URL base
   BASE_URL: "https://eprints.amikom.ac.id/view/divisions/tk",
+
+  // Folder output
+  OUTPUT_FOLDER: "output-csv",
 };
+
+// Fungsi untuk memastikan folder output ada
+function ensureOutputFolder() {
+  if (!existsSync(CONFIG.OUTPUT_FOLDER)) {
+    mkdirSync(CONFIG.OUTPUT_FOLDER, { recursive: true });
+    console.log(`📁 Folder output dibuat: ${CONFIG.OUTPUT_FOLDER}`);
+  }
+}
+
+// Fungsi untuk membuat path lengkap file output
+function getOutputPath(filename: string): string {
+  ensureOutputFolder();
+  return join(CONFIG.OUTPUT_FOLDER, filename);
+}
 
 async function scrapeWebsite(url: string, xpathExpression: string) {
   try {
@@ -668,9 +687,12 @@ async function writeToCSV(data: any[], filename: string) {
 
     const csvContent = csvRows.join("\n");
 
+    // Buat path lengkap dengan folder output
+    const fullPath = getOutputPath(filename);
+
     // Tulis ke file
-    await Bun.write(filename, csvContent);
-    console.log(`\n✅ Data berhasil disimpan ke: ${filename}`);
+    await Bun.write(fullPath, csvContent);
+    console.log(`\n✅ Data berhasil disimpan ke: ${fullPath}`);
     console.log(`📊 Total records: ${data.length}`);
 
     return true;
@@ -1032,9 +1054,12 @@ async function writeArticleDetailsToCSV(
 
     const csvContent = csvRows.join("\n");
 
+    // Buat path lengkap dengan folder output
+    const fullPath = getOutputPath(filename);
+
     // Tulis ke file
-    await Bun.write(filename, csvContent);
-    console.log(`\n✅ Detail artikel berhasil disimpan ke: ${filename}`);
+    await Bun.write(fullPath, csvContent);
+    console.log(`\n✅ Detail artikel berhasil disimpan ke: ${fullPath}`);
     console.log(`📊 Total artikel: ${articleDetails.length}`);
 
     // Statistik
