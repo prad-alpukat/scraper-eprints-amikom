@@ -1,0 +1,16 @@
+{
+  "name": "scrape",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/jsdom": "^21.1.7",
+    "cheerio": "^1.1.0",
+    "jsdom": "^26.1.0",
+    "xpath": "^0.0.34"
+  }
+}
