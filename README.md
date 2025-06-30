@@ -57,16 +57,6 @@ const CONFIG = {
 };
 ```
 
-### Pilihan Konfigurasi
-
-| Nilai  | Jumlah Artikel | Estimasi Waktu | Penggunaan           |
-| ------ | -------------- | -------------- | -------------------- |
-| `null` | 379 artikel    | ~16 jam        | **Scraping lengkap** |
-| `10`   | 10 artikel     | ~1 menit       | Testing              |
-| `50`   | 50 artikel     | ~5 menit       | Sample kecil         |
-| `100`  | 100 artikel    | ~10 menit      | Sample sedang        |
-| `200`  | 200 artikel    | ~20 menit      | Sample besar         |
-
 ## 🏃‍♂️ Cara Menjalankan
 
 ### 1. Testing (10 artikel pertama)
